@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.Scanner;
+import java.util.HashSet;
 
 public class MyList {
 
@@ -11,6 +13,7 @@ public class MyList {
         // Exercice 1 : Trier un tableau d'entier
         int[] tableau = { 5, 1, 6, 8, 10 };
         Arrays.sort(tableau);
+        System.out.println(Arrays.toString(tableau));
         for (int el : tableau) {
             System.out.println(el);
         }
@@ -46,15 +49,27 @@ public class MyList {
 
         // Exercice 4: Rechercher un élément dans un tableau trié
         int[] tableau3 = { 1, 3, 5, 7, 9 };
+        // Autre méthode
+        // Utilisation de la méthode scanner
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter un nombre");
+        int target = scanner.nextInt();
+        int index = Arrays.binarySearch(tableau3, target);
+        String resultat = (index < 0) ? "Le nombre n'existe pas dans le tableau"
+                : "Le nombre existe à l'index " + index;
+        System.out.println(resultat);
 
-        
-        System.out.println(Arrays.binarySearch(tableau3, 7));
-        
+        // System.out.println(Arrays.binarySearch(tableau3, 7));
+
         // Exercice 5: Supprimer les doublons d'un tableau
-        int[] tableau4 = {1, 2, 2, 3, 4, 4, 5};
-        
-        
+        int[] doublons = { 1, 2, 2, 3, 4, 4, 5 };
+        Set<Integer> uniqueVal = new HashSet<>();
+        for (int item : doublons) {
+            uniqueVal.add(item);
+
+        }
+        System.out.println("Le tableau des valeurs uniques est : " + uniqueVal);
+
     }
 
-   
 }
